@@ -10,14 +10,56 @@
 </div>
 
 <form [formGroup]="checkoutForm" (ngSubmit)="onSubmit()">
-  <div>
-    <label for="name"> Name </label>
-    <input id="name" type="text" formControlName="name" />
-  </div>
+  <table class="example-full-width" cellspacing="0">
+    <tr>
+      <td>
+        <mat-form-field class="example-full-width" appearance="fill">
+          <mat-label>First name</mat-label>
+          <input matInput />
+        </mat-form-field>
+      </td>
+
+      <td>
+        <mat-form-field class="example-full-width" appearance="fill">
+          <mat-label>Long Last Name That Will Be Truncated</mat-label>
+          <input matInput />
+        </mat-form-field>
+      </td>
+    </tr>
+
+    <tr>
+      <td>
+        <mat-form-field appearance="fill">
+          <mat-label>First name</mat-label>
+          <input matInput />
+        </mat-form-field>
+      </td>
+    </tr>
+  </table>
 
   <div>
     <label for="address"> Address </label>
     <input id="address" type="text" formControlName="address" />
+  </div>
+
+  <div>
+    <label for="email"> e-mail </label>
+    <input id="email" type="email" formControlName="email" />
+    <label for="pw"> password </label>
+    <input id="pw" type="password" formControlName="pw" />
+  </div>
+
+  <div>
+    <label for="dob"> Date </label>
+    <input
+      id="dob"
+      [value]="currentDate"
+      type="datetime-local"
+      formControlName="dob"
+    />
+
+    <p>Current Date: {{ todayDate | date }}</p>
+    <p>Current DateTime: {{ todayDate | date: 'short' }}</p>
   </div>
 
   <button class="button" type="submit">Purchase</button>
